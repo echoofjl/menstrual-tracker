@@ -1,0 +1,29 @@
+.section {
+  padding: 24rpx;
+}
+
+.section-title {
+  font-weight: bold;
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+}
+
+.card {
+  margin-top: 24rpx;
+  border: 1px solid #eee;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  background: #fafafa;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 30rpx;
+  margin-bottom: 10rpx;
+}
+
+.card-subtitle {
+  font-size: 26rpx;
+  color: #555;
+  margin-bottom: 10rpx;
+}

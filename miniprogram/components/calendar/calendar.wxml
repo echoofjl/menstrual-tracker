@@ -1,0 +1,19 @@
+<view class="calendar-header">
+  <button class="nav-btn" bindtap="prevYear">«</button>
+  <button class="nav-btn" bindtap="prevMonth">‹</button>
+  <text class="month-label">{{currentYear}} 年 {{currentMonth}} 月</text>
+  <button class="nav-btn" bindtap="nextMonth">›</button>
+  <button class="nav-btn" bindtap="nextYear">»</button>
+</view>
+<view class="calendar">
+  <view class="calendar-grid">
+    <view class="calendar-weekday" wx:for="{{['日','一','二','三','四','五','六']}}" wx:key="*this">
+      {{item}}
+    </view>
+    <block wx:for="{{days}}" wx:key="dateStr">
+      <view class="calendar-day {{item.isToday ? 'today' : ''}}" style="{{item.style}}">
+        {{item.date > 0 ? item.date : ''}}
+      </view>
+    </block>
+  </view>
+</view>

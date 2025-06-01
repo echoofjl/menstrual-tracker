@@ -1,0 +1,38 @@
+<view class="summary-section">
+  <view class="phase-line">
+    <text class="label">当前阶段：</text>
+    <text class="value">{{currentPhase || '-'}}</text>
+  </view>
+  <view class="phase-line">
+    <text class="label">上次记录：</text>
+    <text class="value">{{latestStartDate || '-'}}</text>
+  </view>
+  <view class="button-group">
+    <button class="primary-btn" bindtap="onStartPeriod">开始经期</button>
+    <button class="secondary-btn" bindtap="onEndPeriod">结束经期</button>
+  </view>
+</view>
+<view class="history-section">
+  <text class="section-title">我的周期记录</text>
+  <block wx:if="{{groupedHistory.length > 0}}">
+    <block wx:for="{{groupedHistory}}" wx:key="year">
+      <view class="year-block">
+        <text class="year-title">{{item.year}} 年</text>
+        <block wx:for="{{item.records}}" wx:key="startDate">
+          <view class="record-item">
+            <text>
+              {{item.startDate}} ~
+              <text class="{{!item.endDate ? 'in-progress' : ''}}">{{item.endDate || '进行中'}}</text>
+            </text>
+          </view>
+        </block>
+      </view>
+    </block>
+  </block>
+  <block wx:else>
+    <view class="empty-state">
+      <text class="empty-text">你还没有记录过任何周期</text>
+      <text class="hint-text">点击上方「开始经期」按钮记录第一次吧</text>
+    </view>
+  </block>
+</view>

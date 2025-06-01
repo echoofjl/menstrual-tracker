@@ -1,0 +1,15 @@
+<view class="section">
+  <view class="section-title">📖 不同时期的女性身体与调理建议</view>
+  <block wx:for="{{knowledgeList}}" wx:key="phase">
+    <view class="card">
+      <view class="card-title">{{item.phase}} ({{item.range}})</view>
+      <view class="card-subtitle">激素变化：{{item.hormone}}</view>
+      <view class="card-content">
+        <view>可能失衡现象：</view>
+        <view>{{item.issues}}</view>
+        <view>调节建议：</view>
+        <view>{{item.suggestion}}</view>
+      </view>
+    </view>
+  </block>
+</view>

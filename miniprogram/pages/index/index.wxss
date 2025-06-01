@@ -1,0 +1,109 @@
+.summary-section {
+  padding: 40rpx;
+  background-color: #fff8f6;
+  border-radius: 20rpx;
+  margin: 32rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.phase-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: #444;
+  margin-bottom: 20rpx;
+}
+
+.label {
+  font-weight: bold;
+  color: #666;
+}
+
+.value {
+  color: #f56c6c; /* 主色 */
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 32rpx;
+}
+
+.primary-btn {
+  flex: 1;
+  margin-right: 12rpx;
+  background-color: #f99ca2;
+  color: white;
+  height: 80rpx;
+  border-radius: 40rpx;
+}
+
+.secondary-btn {
+  flex: 1;
+  margin-left: 12rpx;
+  background-color: #fbc47b;
+  color: white;
+  height: 80rpx;
+  border-radius: 40rpx;
+}
+
+.history-section {
+  padding: 32rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  color: #444;
+}
+
+.year-block {
+  margin-bottom: 40rpx;
+}
+
+.year-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #888;
+  margin-bottom: 16rpx;
+  padding-left: 8rpx;
+  border-left: 8rpx solid #f99ca2;
+}
+
+.record-item {
+  background-color: #fff8f6;
+  border-radius: 16rpx;
+  padding: 24rpx 32rpx;
+  margin-bottom: 12rpx;
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.03);
+}
+
+.record-item text {
+  font-size: 26rpx;
+  color: #333;
+}
+
+.record-item .in-progress {
+  color: #e65c5c;
+  font-weight: bold;
+}
+
+.empty-state {
+  padding: 40rpx;
+  background-color: #fffbe8;
+  border-radius: 16rpx;
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 16rpx;
+}
+
+.hint-text {
+  font-size: 24rpx;
+  color: #bbb;
+}

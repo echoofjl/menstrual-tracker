@@ -1,0 +1,4 @@
+<view class="calendar-page">
+  <calendar markList="{{markedList}}"></calendar>
+  <legend-selector bind:select="onPhaseSelect" />
+</view>

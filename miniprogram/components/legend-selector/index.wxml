@@ -1,0 +1,8 @@
+<view class="legend-container">
+    <block wx:for="{{phases}}" wx:key="name">
+        <view class="legend-item {{selected === item.name ? 'active' : ''}}" data-name="{{item.name}}" bindtap="onTap">
+            <view class="color-dot" style="background-color: {{item.color}};"></view>
+            <text>{{item.name}}</text>
+        </view>
+    </block>
+</view>

@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/knowledge/index",
+    "pages/calendar/index",
+    "pages/start/index",
+    "pages/end/index"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/calendar/index",
+        "text": "日历"
+      },
+      {
+        "pagePath": "pages/knowledge/index",
+        "text": "知识"
+      }
+    ],
+    "color": "#999999",
+    "selectedColor": "#e91e63",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black"
+  },
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "lazyCodeLoading": "requiredComponents"
+}

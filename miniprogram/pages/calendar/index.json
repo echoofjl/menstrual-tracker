@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "周期日历",
+    "usingComponents": {
+        "calendar": "/components/calendar/calendar",
+        "legend-selector": "/components/legend-selector/index"
+    }
+}
