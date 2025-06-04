@@ -107,3 +107,38 @@
   font-size: 24rpx;
   color: #bbb;
 }
+
+.start-container,
+.end-container {
+  padding: 40rpx;
+}
+
+.title {
+  font-size: 32rpx;
+  color: #444;
+  margin-bottom: 24rpx;
+}
+
+.date-picker {
+  padding: 24rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 12rpx;
+  margin-bottom: 40rpx;
+  background-color: #fff8f6;
+}
+
+.start-container .confirm-btn {
+  background-color: #f99ca2;
+  color: white;
+  font-size: 28rpx;
+  height: 88rpx;
+  border-radius: 44rpx;
+}
+
+.end-container .confirm-btn {
+  background-color: #fbc47b;
+  color: white;
+  font-size: 28rpx;
+  height: 88rpx;
+  border-radius: 44rpx;
+}

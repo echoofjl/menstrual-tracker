@@ -11,6 +11,20 @@
     <button class="primary-btn" bindtap="onStartPeriod">开始经期</button>
     <button class="secondary-btn" bindtap="onEndPeriod">结束经期</button>
   </view>
+  <view class="start-container" wx:if="{{showStartForm}}">
+    <text class="title">请选择经期开始日期</text>
+    <picker mode="date" value="{{startSelectedDate}}" bindchange="onStartDateChange">
+      <view class="date-picker">开始日期：{{startSelectedDate}}</view>
+    </picker>
+    <button class="confirm-btn" bindtap="onConfirmStart">确认记录</button>
+  </view>
+  <view class="end-container" wx:if="{{showEndForm}}">
+    <text class="title">请选择经期结束日期</text>
+    <picker mode="date" value="{{endSelectedDate}}" bindchange="onEndDateChange" end="{{endMaxDate}}">
+      <view class="date-picker">结束日期：{{endSelectedDate}}</view>
+    </picker>
+    <button class="confirm-btn" bindtap="onConfirmEnd">确认结束</button>
+  </view>
 </view>
 <view class="history-section">
   <text class="section-title">我的周期记录</text>
