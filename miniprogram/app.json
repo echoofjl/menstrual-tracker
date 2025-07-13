@@ -1,10 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/knowledge/index",
-    "pages/calendar/index",
-    "pages/start/index",
-    "pages/end/index"
+    "pages/profile/index",
+    "pages/calendar/index"
   ],
   "tabBar": {
     "list": [
@@ -17,8 +15,8 @@
         "text": "日历"
       },
       {
-        "pagePath": "pages/knowledge/index",
-        "text": "知识"
+        "pagePath": "pages/profile/index",
+        "text": "用户设置"
       }
     ],
     "color": "#999999",

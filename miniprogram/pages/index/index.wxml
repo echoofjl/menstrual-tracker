@@ -1,52 +1,26 @@
-<view class="summary-section">
-  <view class="phase-line">
-    <text class="label">当前阶段：</text>
-    <text class="value">{{currentPhase || '-'}}</text>
+<view class="container">
+  <!-- 当前周期阶段 -->
+  <view class="phase-card">
+    <text class="date-info">📅 今天是：{{today}}</text>
+    <text class="phase-info">🔄 当前阶段：{{phaseInfo.phase}}（第{{phaseInfo.dayIndex}}天）</text>
+    <text class="next-period">🩸 预计下次月经：{{phaseInfo.nextPeriod}}</text>
   </view>
-  <view class="phase-line">
-    <text class="label">上次记录：</text>
-    <text class="value">{{latestStartDate || '-'}}</text>
+
+  <!-- 今日建议 -->
+  <view class="suggestion-card">
+    <text class="suggestion-title">💡 今日建议</text>
+    <text class="suggestion-content">{{suggestion}}</text>
   </view>
-  <view class="button-group">
-    <button class="primary-btn" bindtap="onStartPeriod">开始经期</button>
-    <button class="secondary-btn" bindtap="onEndPeriod">结束经期</button>
+
+  <!-- 快捷操作 -->
+  <view class="action-section">
+    <button type="primary" bindtap="goToRecord" hover-class="button-hover">
+      <text class="button-icon">📝</text>
+      <text class="button-text">记录今天</text>
+    </button>
+    <button bindtap="goToCalendar" hover-class="button-hover">
+      <text class="button-icon">📅</text>
+      <text class="button-text">查看日历</text>
+    </button>
   </view>
-  <view class="start-container" wx:if="{{showStartForm}}">
-    <text class="title">请选择经期开始日期</text>
-    <picker mode="date" value="{{startSelectedDate}}" bindchange="onStartDateChange">
-      <view class="date-picker">开始日期：{{startSelectedDate}}</view>
-    </picker>
-    <button class="confirm-btn" bindtap="onConfirmStart">确认记录</button>
-  </view>
-  <view class="end-container" wx:if="{{showEndForm}}">
-    <text class="title">请选择经期结束日期</text>
-    <picker mode="date" value="{{endSelectedDate}}" bindchange="onEndDateChange" end="{{endMaxDate}}">
-      <view class="date-picker">结束日期：{{endSelectedDate}}</view>
-    </picker>
-    <button class="confirm-btn" bindtap="onConfirmEnd">确认结束</button>
-  </view>
-</view>
-<view class="history-section">
-  <text class="section-title">我的周期记录</text>
-  <block wx:if="{{groupedHistory.length > 0}}">
-    <block wx:for="{{groupedHistory}}" wx:key="year">
-      <view class="year-block">
-        <text class="year-title">{{item.year}} 年</text>
-        <block wx:for="{{item.records}}" wx:key="startDate">
-          <view class="record-item">
-            <text>
-              {{item.startDate}} ~
-              <text class="{{!item.endDate ? 'in-progress' : ''}}">{{item.endDate || '进行中'}}</text>
-            </text>
-          </view>
-        </block>
-      </view>
-    </block>
-  </block>
-  <block wx:else>
-    <view class="empty-state">
-      <text class="empty-text">你还没有记录过任何周期</text>
-      <text class="hint-text">点击上方「开始经期」按钮记录第一次吧</text>
-    </view>
-  </block>
 </view>

@@ -1,144 +1,178 @@
-.summary-section {
-  padding: 40rpx;
-  background-color: #fff8f6;
-  border-radius: 20rpx;
-  margin: 32rpx;
-  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+/* 页面容器 */
+.container {
+  padding: 32rpx 24rpx;
+  background: linear-gradient(135deg, #ffeef8 0%, #f8f4ff 100%);
+  min-height: 100vh;
 }
 
-.phase-line {
-  display: flex;
-  justify-content: space-between;
-  font-size: 28rpx;
-  color: #444;
-  margin-bottom: 20rpx;
-}
-
-.label {
-  font-weight: bold;
-  color: #666;
-}
-
-.value {
-  color: #f56c6c; /* 主色 */
-}
-
-.button-group {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 32rpx;
-}
-
-.primary-btn {
-  flex: 1;
-  margin-right: 12rpx;
-  background-color: #f99ca2;
-  color: white;
-  height: 80rpx;
-  border-radius: 40rpx;
-}
-
-.secondary-btn {
-  flex: 1;
-  margin-left: 12rpx;
-  background-color: #fbc47b;
-  color: white;
-  height: 80rpx;
-  border-radius: 40rpx;
-}
-
-.history-section {
+/* 相位信息卡片 */
+.phase-card {
+  background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+  border-radius: 24rpx;
   padding: 32rpx;
-}
-
-.section-title {
-  font-size: 32rpx;
-  font-weight: bold;
-  margin-bottom: 20rpx;
-  color: #444;
-}
-
-.year-block {
-  margin-bottom: 40rpx;
-}
-
-.year-title {
-  font-size: 28rpx;
-  font-weight: bold;
-  color: #888;
-  margin-bottom: 16rpx;
-  padding-left: 8rpx;
-  border-left: 8rpx solid #f99ca2;
-}
-
-.record-item {
-  background-color: #fff8f6;
-  border-radius: 16rpx;
-  padding: 24rpx 32rpx;
-  margin-bottom: 12rpx;
-  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.03);
-}
-
-.record-item text {
-  font-size: 26rpx;
-  color: #333;
-}
-
-.record-item .in-progress {
-  color: #e65c5c;
-  font-weight: bold;
-}
-
-.empty-state {
-  padding: 40rpx;
-  background-color: #fffbe8;
-  border-radius: 16rpx;
-  text-align: center;
-  margin-top: 20rpx;
-}
-
-.empty-text {
-  font-size: 28rpx;
-  color: #999;
-  margin-bottom: 16rpx;
-}
-
-.hint-text {
-  font-size: 24rpx;
-  color: #bbb;
-}
-
-.start-container,
-.end-container {
-  padding: 40rpx;
-}
-
-.title {
-  font-size: 32rpx;
-  color: #444;
   margin-bottom: 24rpx;
+  box-shadow: 0 8rpx 32rpx rgba(255, 105, 180, 0.15);
+  border: 1rpx solid rgba(255, 182, 193, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
-.date-picker {
-  padding: 24rpx;
-  border: 1rpx solid #ddd;
-  border-radius: 12rpx;
-  margin-bottom: 40rpx;
-  background-color: #fff8f6;
+.phase-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6rpx;
+  background: linear-gradient(90deg, #ff69b4, #ff1493, #dc143c);
+  border-radius: 24rpx 24rpx 0 0;
 }
 
-.start-container .confirm-btn {
-  background-color: #f99ca2;
-  color: white;
+.phase-card text {
+  display: block;
+  margin-bottom: 16rpx;
   font-size: 28rpx;
-  height: 88rpx;
-  border-radius: 44rpx;
+  color: #333;
+  line-height: 1.5;
 }
 
-.end-container .confirm-btn {
-  background-color: #fbc47b;
-  color: white;
+.phase-card text:last-child {
+  margin-bottom: 0;
+}
+
+.phase-card text:first-child {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #ff1493;
+}
+
+/* 建议卡片 */
+.suggestion-card {
+  background: linear-gradient(135deg, #fff5f8 0%, #fef7ff 100%);
+  border-radius: 24rpx;
+  padding: 32rpx;
+  margin-bottom: 32rpx;
+  box-shadow: 0 6rpx 24rpx rgba(138, 43, 226, 0.12);
+  border: 1rpx solid rgba(221, 160, 221, 0.3);
+}
+
+.suggestion-title {
+  font-weight: 700;
+  font-size: 32rpx;
+  color: #8a2be2;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.suggestion-card text:last-child {
   font-size: 28rpx;
-  height: 88rpx;
-  border-radius: 44rpx;
+  color: #555;
+  line-height: 1.6;
+  display: block;
+}
+
+/* 操作按钮区域 */
+.action-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.action-section button {
+  border-radius: 50rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  padding: 24rpx 0;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
+}
+
+.action-section button[type="primary"] {
+  background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+  color: white;
+}
+
+.action-section button[type="primary"]:active {
+  background: linear-gradient(135deg, #ff1493 0%, #dc143c 100%);
+  transform: translateY(2rpx);
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.2);
+}
+
+.action-section button:not([type="primary"]) {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f8ff 100%);
+  color: #8a2be2;
+  border: 2rpx solid #dda0dd;
+}
+
+.action-section button:not([type="primary"]):active {
+  background: linear-gradient(135deg, #f8f8ff 0%, #e6e6fa 100%);
+  transform: translateY(2rpx);
+  box-shadow: 0 2rpx 8rpx rgba(138, 43, 226, 0.2);
+}
+
+/* 按钮内容布局 */
+.action-section button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+}
+
+.button-icon {
+  font-size: 36rpx;
+}
+
+.button-text {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+/* 按钮悬停效果 */
+.button-hover {
+  opacity: 0.8;
+  transform: scale(0.98);
+}
+
+/* 特定信息样式 */
+.date-info {
+  font-size: 32rpx !important;
+  font-weight: 600 !important;
+  color: #ff1493 !important;
+}
+
+.phase-info {
+  font-size: 30rpx !important;
+  font-weight: 500 !important;
+  color: #8a2be2 !important;
+}
+
+.next-period {
+  font-size: 28rpx !important;
+  color: #dc143c !important;
+  font-weight: 500 !important;
+}
+
+.suggestion-content {
+  font-size: 28rpx !important;
+  color: #555 !important;
+  line-height: 1.6 !important;
+  display: block !important;
+}
+
+/* 响应式设计 */
+@media (max-width: 750rpx) {
+  .container {
+    padding: 24rpx 16rpx;
+  }
+
+  .phase-card,
+  .suggestion-card {
+    padding: 24rpx;
+  }
+
+  .action-section button {
+    font-size: 28rpx;
+    padding: 20rpx 0;
+  }
 }

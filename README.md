@@ -1,83 +1,115 @@
-# Menstrual Tracker
+# 生理周期管理小程序（Menstrual Tracker）
 
-A WeChat Mini Program for tracking menstrual cycles, visualizing phases, and learning about female reproductive health.
+## 项目简介
 
-## 🌸 Features
+这是一个为女性用户设计的微信小程序，用于记录经期、判断当前生理周期阶段（如月经期、卵泡期、排卵期、黄体期），并根据阶段提供个性化的健康建议（如饮食、情绪、运动等）。
 
-- Record menstrual start and end dates
-- Calendar view with colored phase markers (menstrual, follicular, ovulation, luteal)
-- Knowledge section with hormonal and lifestyle tips
-- Smooth user experience with local + cloud data storage
+该项目结合微信云开发能力，实现了前端展示、数据存储、周期计算、个性化设置等功能，旨在提供简洁、私密、实用的周期管理体验。
 
 ---
 
-## 🧾 Project Structure
+## 技术栈
 
-```
-menstrual-tracker/
-├── miniprogram/               # Main application
-│   ├── app.ts                 # App entry
-│   ├── app.json / app.wxss    # Global config & styles
-│   ├── components/            # Reusable UI components
-│   │   ├── calendar/
-│   │   └── legend-selector/
-│   ├── pages/                 # Core pages
-│   │   ├── index/             # Home (current status + actions)
-│   │   ├── calendar/          # Visual cycle tracker
-│   │   ├── knowledge/         # Cycle phase education
-│   │   ├── start/             # (Optional) Start period record
-│   │   └── end/               # (Optional) End period record
-│   └── utils/                 # Utility & logic modules
-│       ├── cloudDB.ts         # Database abstraction
-│       ├── period.ts          # Cycle calculation
-│       └── util.ts
-├── typings/                   # Type definitions
-│   └── types/
-├── package.json
-├── tsconfig.json
-├── project.config.json        # WeChat DevTools config
-└── project.private.config.json
-```
+- **前端框架**：微信小程序原生 WXML / WXSS / JS/TS
+- **状态管理**：Page 内置数据绑定
+- **组件复用**：自定义组件（如 calendar、legend-selector）
+- **数据库**：微信云开发 CloudBase 数据库（类似 MongoDB）
+- **云函数**：用于周期计算（如 getTodayPhase, getCycleMap）
+- **平台支持**：仅限微信小程序平台
 
 ---
 
-## 🚀 Getting Started
+## 功能模块与页面结构
 
-### Prerequisites
+### 首页 `/pages/index/`
 
-- [Node.js](https://nodejs.org/)
-- [WeChat DevTools](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/devtools.html)
-- (Optional) npm or pnpm for dependency management
+- 显示当前周期阶段（如“黄体期第 3 天”）
+- 展示今日建议（饮食、运动等）
+- 快捷跳转到记录页和日历页
 
-### Setup
+### 记录页 `/pages/record/`
 
-```bash
-git clone <repository-url>
-cd menstrual-tracker
-npm install
-```
+- 记录经期开始/结束
+- 输入当日症状、体温、备注
+- 支持传入日期补录过去的记录
 
-Then open the project in **WeChat DevTools** and hit “Run”.
+### 日历页 `/pages/calendar/`
 
----
+- 展示周期状态（经期、排卵期）高亮日历
+- 图例筛选器控制显示类型
+- 点击日期可查看或跳转补录记录
 
-## 🛠 Development Notes
+### 设置页 `/pages/profile/`
 
-- TypeScript enabled with strict checks
-- Uses [微信云开发（CloudBase）](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html) for data storage
-- Modern `wx.cloud.database()` + modular architecture
-
----
-
-## 📌 TODO Ideas (Optional)
-
-- Notification/reminder for upcoming periods
-- Personalized cycle predictions based on history
-- Symptom/mood logging
-- Sharing reports with doctors (PDF/CSV)
+- 设置平均周期长度、经期长度
+- 开启/关闭周期提醒
+- 查看隐私协议
 
 ---
 
-## 📄 License
+## 数据库结构
 
-This project is for **personal use and learning purposes**. You may fork and adapt it for your own cycle tracking or research.
+### `daily_logs`（每日记录）
+
+| 字段名            | 类型     | 说明             |
+| ----------------- | -------- | ---------------- |
+| `_openid`         | string   | 微信用户 ID      |
+| `date`            | string   | yyyy-mm-dd       |
+| `is_period_start` | boolean  | 是否为月经开始日 |
+| `is_period_end`   | boolean  | 是否为月经结束日 |
+| `symptoms`        | string[] | 症状列表         |
+| `temperature`     | number   | 体温（°C）       |
+| `notes`           | string   | 用户备注         |
+
+### `user_profile`（用户配置）
+
+| 字段名            | 类型    | 说明                    |
+| ----------------- | ------- | ----------------------- |
+| `cycle_length`    | number  | 平均周期长度（默认 28） |
+| `period_length`   | number  | 平均经期长度（默认 5）  |
+| `notification_on` | boolean | 是否开启提醒            |
+
+---
+
+## ☁️ 云函数
+
+| 云函数名         | 功能                         |
+| ---------------- | ---------------------------- |
+| `getTodayPhase`  | 判断当前所处周期阶段         |
+| `getCycleMap`    | 返回一个月内每一天的周期状态 |
+| `submitDailyLog` | 保存当日记录                 |
+
+---
+
+## 开发说明
+
+1. 使用微信开发者工具打开本项目
+2. 开启“云开发”功能，并创建默认环境
+3. 创建以下集合：`daily_logs`, `user_profile`
+4. 上传并部署云函数（推荐“上传并部署：带依赖”）
+5. 启动模拟器测试各功能页面
+
+---
+
+## TODO
+
+- [ ] 添加提醒功能（结合订阅消息）
+- [ ] 增加周期图表分析页
+- [ ] 引入 AI 推荐（基于用户行为学习建议）
+- [ ] 数据加密 / 云端导出 / 同步功能
+- [ ] 国际化（i18n）
+
+---
+
+## 隐私说明
+
+- 所有数据仅保存在微信云开发数据库中，与你的 `_openid` 绑定
+- 支持匿名记录与本地存储选项（计划中）
+- 不采集用户敏感信息，不上传至任何第三方
+
+---
+
+## 作者
+
+由 [JL](https://github.com/jlog-dev) 开发与维护。  
+本项目以学习与健康公益为导向，不作为医疗建议依据。

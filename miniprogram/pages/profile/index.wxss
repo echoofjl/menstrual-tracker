@@ -1,0 +1,18 @@
+.container {
+  padding: 32rpx;
+}
+
+.section {
+  margin-bottom: 36rpx;
+}
+
+.label {
+  display: block;
+  margin-bottom: 12rpx;
+  font-weight: bold;
+}
+
+.link {
+  color: #007aff;
+  text-decoration: underline;
+}

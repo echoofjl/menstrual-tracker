@@ -1,0 +1,43 @@
+<view class="container">
+  <!-- 日期选择器 -->
+  <view class="section">
+    <picker mode="date" value="{{date}}" bindchange="onDateChange">
+      <view class="picker-text">记录日期：{{date}}</view>
+    </picker>
+  </view>
+
+  <!-- 经期标记 -->
+  <view class="section">
+    <text>月经记录：</text>
+    <radio-group bindchange="onPeriodChange">
+      <label><radio value="start" checked="{{isPeriodStart}}" /> 开始</label>
+      <label><radio value="end" checked="{{isPeriodEnd}}" /> 结束</label>
+      <label><radio value="none" checked="{{!isPeriodStart && !isPeriodEnd}}" /> 无</label>
+    </radio-group>
+  </view>
+
+  <!-- 症状选择 -->
+  <view class="section">
+    <text>症状选择：</text>
+    <checkbox-group bindchange="onSymptomsChange">
+      <label wx:for="{{symptomOptions}}" wx:key="value">
+        <checkbox value="{{item}}" /> {{item}}
+      </label>
+    </checkbox-group>
+  </view>
+
+  <!-- 体温 -->
+  <view class="section">
+    <input placeholder="体温（可选）如36.5" type="number" bindinput="onTempInput" />
+  </view>
+
+  <!-- 备注 -->
+  <view class="section">
+    <textarea placeholder="备注..." bindinput="onNoteInput" />
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class="section">
+    <button type="primary" bindtap="submitLog">提交记录</button>
+  </view>
+</view>

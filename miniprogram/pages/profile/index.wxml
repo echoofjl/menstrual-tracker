@@ -1,0 +1,31 @@
+<view class="container">
+  <!-- 周期长度 -->
+  <view class="section">
+    <text class="label">平均周期长度（天）</text>
+    <input type="number" placeholder="默认 28" value="{{cycleLength}}" bindinput="onCycleInput" />
+  </view>
+
+  <!-- 经期长度 -->
+  <view class="section">
+    <text class="label">平均经期长度（天）</text>
+    <input type="number" placeholder="默认 5" value="{{periodLength}}" bindinput="onPeriodInput" />
+  </view>
+
+  <!-- 提醒开关 -->
+  <view class="section">
+    <text class="label">周期提醒开关</text>
+    <switch checked="{{notificationOn}}" bindchange="onSwitchChange" />
+  </view>
+
+  <!-- 隐私协议 -->
+  <view class="section">
+    <navigator url="/pages/privacy/index">
+      <text class="link">查看隐私协议</text>
+    </navigator>
+  </view>
+
+  <!-- 保存按钮 -->
+  <view class="section">
+    <button type="primary" bindtap="saveProfile">保存设置</button>
+  </view>
+</view>
